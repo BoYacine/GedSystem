@@ -2,13 +2,12 @@ package com.yacine.GedSystem.FileRules.Entity;
 
 import com.yacine.GedSystem.FileManagement.Entity.Document;
 import com.yacine.GedSystem.Shared.SharedEntity;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
-
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 import java.util.List;
 
 @Entity

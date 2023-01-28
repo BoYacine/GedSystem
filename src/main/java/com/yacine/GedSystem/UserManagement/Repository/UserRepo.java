@@ -1,7 +1,11 @@
 package com.yacine.GedSystem.UserManagement.Repository;
 
-import com.yacine.GedSystem.UserManagement.Entity.User;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.yacine.GedSystem.Shared.SharedRepository;
+import com.yacine.GedSystem.UserManagement.Entity.UserInfo;
+import org.springframework.stereotype.Repository;
 
-public interface UserRepo extends JpaRepository<User,Integer> {
+@Repository
+public interface UserRepo extends SharedRepository<UserInfo,Integer> {
+
+    UserInfo findByUsername(String name);
 }

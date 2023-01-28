@@ -7,8 +7,10 @@ ______
 Modules:
 1. *Security*
 2. User Management
-- [ ] authentication
-- [ ] authorization
+- [x] authentication
+- [x] authorization
+- [x] adduser with roles
+- [x] signIn
 3. File Management
 4. File Rules
 4. Folder Management
@@ -17,6 +19,8 @@ Modules:
 5. base Search
 - [ ] by-filter
 6. Exception fol All modules
+- [x] Global Exceptions
+- [x] Global Validations
 7. Advanced Search(ElasticSearch Api)
 - [ ] indexing
 - [ ] search

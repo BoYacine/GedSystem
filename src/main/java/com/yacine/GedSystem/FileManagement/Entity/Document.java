@@ -4,14 +4,15 @@ import com.yacine.GedSystem.FileRules.Entity.MetaDataValue;
 import com.yacine.GedSystem.FileRules.Entity.Type;
 import com.yacine.GedSystem.FolderManagement.Entity.Folder;
 import com.yacine.GedSystem.Shared.SharedEntity;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+
 import java.util.List;
 
 @Entity

@@ -1,29 +1,22 @@
 package com.yacine.GedSystem.Shared;
 
-import jakarta.persistence.*;
-import lombok.Data;
+import jakarta.persistence.Column;
+import jakarta.persistence.EntityListeners;
+import jakarta.persistence.MappedSuperclass;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
+import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
-
-
-@Data
-@SuperBuilder
-@MappedSuperclass
-@NoArgsConstructor
+@Getter
+@Setter
 @EntityListeners(AuditingEntityListener.class)
-public abstract class SharedEntity<ID> {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private ID id;
-    @CreatedDate
-    @Column(updatable = false)
+public class SharedDto {
+
     private LocalDateTime createdDate;
-    @LastModifiedDate
     private LocalDateTime lastUpdatedDate;
 }

@@ -2,15 +2,14 @@ package com.yacine.GedSystem.FolderManagement.Entity;
 
 import com.yacine.GedSystem.FileManagement.Entity.Document;
 import com.yacine.GedSystem.Shared.SharedEntity;
-import com.yacine.GedSystem.UserManagement.Entity.User;
+import com.yacine.GedSystem.UserManagement.Entity.UserInfo;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
-
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import java.util.List;
 
 @Entity
@@ -24,7 +23,7 @@ public class Folder extends SharedEntity<Integer> {
     private int pointer;
     private String path;
     @ManyToOne
-    private User user;
+    private UserInfo userInfo;
     @OneToMany(mappedBy = "folder")
     private List<Document>documents;
 
