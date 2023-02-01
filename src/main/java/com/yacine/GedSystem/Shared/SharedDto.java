@@ -16,7 +16,9 @@ import java.time.LocalDateTime;
 @Setter
 @EntityListeners(AuditingEntityListener.class)
 public class SharedDto {
-
+    @CreatedDate
+    @Column(updatable = false)
     private LocalDateTime createdDate;
+    @LastModifiedDate
     private LocalDateTime lastUpdatedDate;
 }

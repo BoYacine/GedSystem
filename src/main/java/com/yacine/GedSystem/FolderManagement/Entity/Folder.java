@@ -4,6 +4,7 @@ import com.yacine.GedSystem.FileManagement.Entity.Document;
 import com.yacine.GedSystem.Shared.SharedEntity;
 import com.yacine.GedSystem.UserManagement.Entity.UserInfo;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;

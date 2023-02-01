@@ -10,5 +10,6 @@ import lombok.Setter;
 public class UserResponse extends SharedDto {
     private String username;
     private String roles;
+    private String dependency;
 
 }

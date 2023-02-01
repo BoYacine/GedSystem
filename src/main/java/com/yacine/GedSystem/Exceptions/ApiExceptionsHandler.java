@@ -17,11 +17,11 @@ import java.util.List;
 @ControllerAdvice
 public class ApiExceptionsHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(Exception.class)
-    public final ResponseEntity<ErrorDetails> handleAllExceptions(Exception ex, WebRequest request) {
-        ErrorDetails error= new ErrorDetails("server error",request.getDescription(false));
-        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
-    }
+//    @ExceptionHandler(Exception.class)
+//    public final ResponseEntity<ErrorDetails> handleAllExceptions(Exception ex, WebRequest request) {
+//        ErrorDetails error= new ErrorDetails("server error",request.getDescription(false));
+//        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
+//    }
 
 
     @ExceptionHandler(BaseException.class)

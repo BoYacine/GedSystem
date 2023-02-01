@@ -36,7 +36,8 @@ public class SecurityConfig {
         "/api/user/test/**",
             "/api/user/add",
             "/api/user/auth",
-            "/api/user/auth2"
+            "/api/user/auth2",
+            "/api/folder/"
     };
 
     @Autowired
@@ -54,6 +55,7 @@ public class SecurityConfig {
        return http.csrf().disable()
                 .authorizeHttpRequests()
                 .requestMatchers(PUBLIC_URL).permitAll()
+               .requestMatchers("/swagger-ui/**", "/yacine-openapi/**").permitAll()
                 .anyRequest().authenticated()
                .and()
                 //.and().formLogin()
