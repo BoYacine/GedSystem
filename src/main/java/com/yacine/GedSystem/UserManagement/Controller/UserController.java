@@ -2,20 +2,19 @@ package com.yacine.GedSystem.UserManagement.Controller;
 
 
 
-import com.yacine.GedSystem.Security.UserInfoDetailService;
-import com.yacine.GedSystem.Security.jwtService;
-import com.yacine.GedSystem.UserManagement.Repository.UserRepo;
+
 import com.yacine.GedSystem.UserManagement.Service.UserService;
 import com.yacine.GedSystem.UserManagement.Service.UserServiceImpl;
 import com.yacine.GedSystem.UserManagement.dto.AuthRequest;
 import com.yacine.GedSystem.UserManagement.dto.UserRequest;
 import com.yacine.GedSystem.UserManagement.dto.UserResponse;
 import com.yacine.GedSystem.UserManagement.mapper.UserMapper;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.Parameters;
+import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -63,6 +62,9 @@ public class UserController {
     }
     @GetMapping("")
     @PreAuthorize("hasAuthority('ROLE_ROOT')")
+    @Parameters({
+            @Parameter(name = "Authorization", description = "jwt token",in = ParameterIn.HEADER)
+    })
     public ResponseEntity<List<UserResponse>> findAll() {
         List<UserResponse> responses = userMapper.entityToDto(userService.findAll());
         return ResponseEntity.ok(responses);
