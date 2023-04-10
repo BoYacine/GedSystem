@@ -100,7 +100,7 @@ public class SecurityConfig {
         config.setAllowedOrigins(Arrays.asList("*"));
         config.setAllowedHeaders(Arrays.asList("Origin", "Content-Type", "Accept", "Authorization"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
-        config.addExposedHeader("Access-Control-Allow-Origin"); // Add this line
+        config.addExposedHeader("Access-Control-Allow-Origin"); // add line
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
