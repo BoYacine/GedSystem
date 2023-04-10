@@ -5,6 +5,7 @@ import com.yacine.GedSystem.FolderManagement.Entity.Folder;
 import com.yacine.GedSystem.FolderManagement.Service.FolderService;
 import com.yacine.GedSystem.FolderManagement.dto.FolderRequest;
 import com.yacine.GedSystem.FolderManagement.dto.FolderResponse;
+import com.yacine.GedSystem.FolderManagement.dto.FolderTree;
 import lombok.AllArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -32,5 +33,12 @@ public class FolderController {
         return folderService.getNodesOfFolder(id);
     }
 
-
+    @PostMapping("child")
+    public List<FolderResponse> getChildren(@RequestBody Folder folder) {
+        return folderService.getChildren(folder);
+    }
+    @GetMapping("Tree/{folderId}")
+    public FolderTree getFolderTree(@PathVariable int folderId) {
+        return folderService.getFolderTree(folderId);
+    }
 }

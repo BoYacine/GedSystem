@@ -3,6 +3,7 @@ package com.yacine.GedSystem.FolderManagement.Service;
 import com.yacine.GedSystem.FolderManagement.Entity.Folder;
 import com.yacine.GedSystem.FolderManagement.dto.FolderRequest;
 import com.yacine.GedSystem.FolderManagement.dto.FolderResponse;
+import com.yacine.GedSystem.FolderManagement.dto.FolderTree;
 import com.yacine.GedSystem.Shared.SharedService;
 
 import java.util.List;
@@ -18,5 +19,8 @@ public abstract class FolderService extends SharedService {
     public abstract List<FolderResponse> findAll();
 
     public abstract List<FolderResponse> getNodesOfFolder(int id);
+
+    public abstract FolderTree getFolderTree(int folderId);
+    public abstract List<FolderResponse> getChildren(Folder folder);
 
 }

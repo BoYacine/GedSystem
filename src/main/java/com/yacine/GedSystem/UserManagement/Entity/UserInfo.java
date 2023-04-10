@@ -3,6 +3,7 @@ package com.yacine.GedSystem.UserManagement.Entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.yacine.GedSystem.FolderManagement.Entity.Folder;
 import com.yacine.GedSystem.Shared.SharedEntity;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
@@ -21,7 +22,7 @@ public class UserInfo extends SharedEntity<Integer> {
     private String password;
     private String roles;
     private String dependency;
-    @OneToMany(mappedBy = "userInfo")
+    @OneToMany(mappedBy = "userInfo", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Folder> folders;
 

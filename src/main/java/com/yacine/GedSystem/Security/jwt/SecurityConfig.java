@@ -33,6 +33,9 @@ public class SecurityConfig {
             "/api/user/auth",
             "/api/user/auth2",
             "/api/folder/",
+            "/api/folder/child",
+            "/api/folder/Tree/**",
+            "/actuator/**",
             "/v2/api-docs",
             "/v3/api-docs",
             "/v3/api-docs/**",
@@ -97,6 +100,7 @@ public class SecurityConfig {
         config.setAllowedOrigins(Arrays.asList("*"));
         config.setAllowedHeaders(Arrays.asList("Origin", "Content-Type", "Accept", "Authorization"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
+        config.addExposedHeader("Access-Control-Allow-Origin"); // Add this line
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }

@@ -1,8 +1,12 @@
 package com.yacine.GedSystem;
 
+import com.yacine.GedSystem.FileRules.Repository.TypeRepo;
 import com.yacine.GedSystem.FolderManagement.Entity.Folder;
 import com.yacine.GedSystem.FolderManagement.Repository.FolderRepo;
 import com.yacine.GedSystem.FolderManagement.Service.FolderServiceImpl;
+import com.yacine.GedSystem.FolderManagement.dto.FolderResponse;
+import com.yacine.GedSystem.FolderManagement.dto.FolderTree;
+import com.yacine.GedSystem.FolderManagement.mapper.FolderMapper;
 import com.yacine.GedSystem.UserManagement.Entity.UserInfo;
 import com.yacine.GedSystem.UserManagement.Repository.UserRepo;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
@@ -15,12 +19,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import javax.swing.*;
+
 @SpringBootApplication
 @EnableJpaAuditing
 @Slf4j
 @AllArgsConstructor
 @OpenAPIDefinition
 public class GedSystemApplication implements ApplicationRunner {
+    private final TypeRepo typeRepo;
 
     UserRepo userRepo;
 
@@ -29,6 +36,7 @@ public class GedSystemApplication implements ApplicationRunner {
     FolderServiceImpl folderService;
 
     FolderRepo folderRepo;
+
 
 
     public static void main(String[] args) {
@@ -54,6 +62,8 @@ public class GedSystemApplication implements ApplicationRunner {
             root.setUserInfo(userInfo);
             folderRepo.save(root);
 
+
+
             Folder home=new Folder();
             home.setName("home");
             home.setPath(folderService.HOME);
@@ -68,7 +78,12 @@ public class GedSystemApplication implements ApplicationRunner {
             organization.setUserInfo(userInfo);
             folderRepo.save(organization);
             log.info(""+organization);
+
+
+
         }
+
+
     }
 
 }

@@ -62,9 +62,9 @@ public class UserController {
     }
     @GetMapping("")
     @PreAuthorize("hasAuthority('ROLE_ROOT')")
-    @Parameters({
-            @Parameter(name = "Authorization", description = "jwt token",in = ParameterIn.HEADER)
-    })
+//    @Parameters({
+//            @Parameter(name = "Authorization", description = "jwt token",in = ParameterIn.HEADER)
+//    })
     public ResponseEntity<List<UserResponse>> findAll() {
         List<UserResponse> responses = userMapper.entityToDto(userService.findAll());
         return ResponseEntity.ok(responses);
